@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/details.css">
+</head>
+<body>
+    <div class="container">
+        <div class="product-details">
+            <div class="image">
+                <img src="" alt="Product Image">
+            </div>
+            <div class="info">
+                <h1 id="productName">Product Name</h1>
+                <p id="productDescription">Description of the product.</p>
+                <p><strong>Price:</strong> $<span id="productPrice">100</span></p>
+                <div class="options">
+                 <button id="addToCartButton">Add to Cart</button>
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const productId = urlParams.get('id');
+            
+            const productData = {
+                product1: {
+                    name: 'Product 1',
+                    description: 'VOWNER Coffee Table, Extendable Height-Adjustable Coffee Table, Living Room Table, Sturdy Lift Top Table, Easy to Lift and Close, with Larger Hidden Compartments',
+                    price: 6700,
+                    imageUrl: 'images/product/large-size/product1.jpg'
+                },
+                product2: {
+                    name: 'Product 2',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: ''
+                },
+                product3: {
+                    name: 'Product 3',
+                    description: 'Description of Product 3.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product3.jpg'
+                },
+                product4: {
+                    name: 'Product 4',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product4.jpg'
+                },
+                product5: {
+                    name: 'Product 5',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product5.jpg'
+                },
+                product6: {
+                    name: 'Product 6',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product6.jpg'
+                },
+                product7: {
+                    name: 'Product 7',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product7.jpg'
+                },
+                product8: {
+                    name: 'Product 8',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product8.jpg'
+                },
+                product9: {
+                    name: 'Product 9',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product9.jpg'
+                },
+                product10: {
+                    name: 'Product 10',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product10.jpg'
+                },
+                product11: {
+                    name: 'Product 11',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product11.jpg'
+                },
+                product12: {
+                    name: 'Product 12',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product12.jpg'
+                },
+                product13: {
+                    name: 'Product 13',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product13.jfif'
+                },
+                
+                product14: {
+                    name: 'Product 14',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product14.jpg'
+                },
+                product15: {
+                    name: 'Product 15',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product15.jpg'
+                },
+                product16: {
+                    name: 'Product 16',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product16.jpg'
+                },
+                product17: {
+                    name: 'Product 17',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product17.jpg'
+                },
+                product18: {
+                    name: 'Product 18',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product18.jpg'
+                },
+                product19: {
+                    name: 'Product 19',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product19.jpg"'
+                },
+                product20: {
+                    name: 'Product 20',
+                    description: 'Description of Product 2.',
+                    price: 120,
+                    imageUrl: 'images/product/large-size/product20.jpg'
+                }
+                
+                
+            };
+            
+            if (productId && productData[productId]) {
+                const product = productData[productId];
+                document.getElementById('productName').textContent = product.name;
+                document.getElementById('productDescription').textContent = product.description;
+                document.getElementById('productPrice').textContent = product.price;
+                document.querySelector('.image img').src = product.imageUrl;
+            }
+        });
+    </script>
+</body>
+</html>

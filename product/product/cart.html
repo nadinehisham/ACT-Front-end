@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1>Shopping Cart</h1>
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Product</th>
+                    <th>Price</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="cart-items">
+                <!-- Cart items will be appended here dynamically -->
+            </tbody>
+        </table>
+        <button id="checkout-button" class="btn btn-primary">Checkout</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="scripts.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+
+            function renderCart() {
+                $('#cart-items').empty();
+                cart.forEach((item, index) => {
+                    $('#cart-items').append(`
+                        <tr data-index="${index}">
+                            <td>${item.name}</td>
+                            <td>${item.price}</td>
+                            <td>
+                                <button class="btn btn-sm btn-danger decrease-qty">-</button>
+                                ${item.quantity}
+                                <button class="btn btn-sm btn-success increase-qty">+</button>
+                            </td>
+                            <td>${item.price * item.quantity}</td>
+                            <td><button class="btn btn-sm btn-danger remove-item">Remove</button></td>
+                        </tr>
+                    `);
+                });
+            }
+
+            renderCart();
+
+            $('#cart-items').on('click', '.remove-item', function() {
+                const index = $(this).closest('tr').data('index');
+                cart.splice(index, 1);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+
+            $('#cart-items').on('click', '.increase-qty', function() {
+                const index = $(this).closest('tr').data('index');
+                cart[index].quantity += 1;
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+
+            $('#cart-items').on('click', '.decrease-qty', function() {
+                const index = $(this).closest('tr').data('index');
+                if (cart[index].quantity > 1) {
+                    cart[index].quantity -= 1;
+                } else {
+                    cart.splice(index, 1);
+                }
+                localStorage.setItem('cart', JSON.stringify(cart));
+                renderCart();
+            });
+
+            $('#checkout-button').click(function() {
+                if (cart.length === 0) {
+                    alert("Your cart is empty!");
+                } else {
+                    alert("Proceeding to checkout...");
+                    // Checkout logic here
+                }
+            });
+        });
+    </script>
+</body>
+</html>
