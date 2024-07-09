@@ -120,3 +120,69 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
 });
+
+/*----------------------------------------------------------------------------------------------LOGIN---------------------------------------------------------------------------------*/
+$(document).ready(function() {
+    function getUsersFromLocalStorage() {
+        const users = localStorage.getItem('users');
+        return users ? JSON.parse(users) : [];
+    }
+
+    function saveUsersToLocalStorage(users) {
+        localStorage.setItem('users', JSON.stringify(users));
+    }
+
+    $("#signupForm").on("submit", function(event) {
+        event.preventDefault();
+        const email = $("#signupEmail").val();
+        const username = $("#signupUsername").val();
+        const password = $("#signupPassword").val();
+        const confirmPassword = $("#confirmPassword").val();
+        const users = getUsersFromLocalStorage();
+
+        if (password !== confirmPassword) {
+            $("#signupError").text("Passwords do not match.");
+            return;
+        }
+
+        if (users.find(u => u.username === username)) {
+            $("#signupError").text("Username already exists.");
+        } else {
+            users.push({ email, username, password });
+            saveUsersToLocalStorage(users);
+            $("#signupError").text("Signup successful!");
+            window.location.href = "product.html";
+
+        }
+    });
+
+    $("#loginForm").on("submit", function(event) {
+        event.preventDefault();
+        const username = $("#loginUsername").val();
+        const password = $("#loginPassword").val();
+        const users = getUsersFromLocalStorage();
+        const user = users.find(u => u.username === username);
+    
+        if (user) {
+            if (user.password === password) {
+                window.location.href = "product.html";
+            } else {
+                $("#loginError").text("Invalid username or password.");
+            }
+        } else {
+            $("#loginError").text("No user exists with that username.");
+        }
+    });
+    
+    // Helper functions to handle localStorage
+    function getUsersFromLocalStorage() {
+        return JSON.parse(localStorage.getItem("users")) || [];
+    }
+    
+    function saveUsersToLocalStorage(users) {
+        localStorage.setItem("users", JSON.stringify(users));
+    }
+    
+});
+
+
