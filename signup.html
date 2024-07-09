@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/122d4ff7ba.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="script.js"></script>
+    <title>Sign Up</title>
+    <style>
+        .min-vh-100 {
+            min-height: 100vh;
+        }
+    </style>
+</head>
+<body>
+    <div class="d-flex align-items-center justify-content-center min-vh-100">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6 col-lg-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="card-title text-center">Sign Up</h5>
+                            <form id="signupForm">
+                                <div class="form-group mb-3">
+                                    <label for="signupEmail">Email</label>
+                                    <input type="email" class="form-control" id="signupEmail" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="signupUsername">Username</label>
+                                    <input type="text" class="form-control" id="signupUsername" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="signupPassword">Password</label>
+                                    <input type="password" class="form-control" id="signupPassword" required>
+                                </div>
+                                <div class="form-group mb-3">
+                                    <label for="confirmPassword">Confirm Password</label>
+                                    <input type="password" class="form-control" id="confirmPassword" required>
+                                </div>
+                                <button type="submit" class="btn btn-primary w-100 mb-3">Sign Up</button>
+                                <div id="signupError" class="text-danger mt-2"></div>
+                            </form>
+                            <div class="text-center mt-3">
+                                <p>Already have an account? <a href="login.html">Login</a></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
