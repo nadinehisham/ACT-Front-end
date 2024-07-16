@@ -119,7 +119,8 @@
     justify-content: space-around;
     align-items: flex-start;
     flex-wrap: wrap;
-    margin-top: auto;
+    bottom:0;
+    width:100%;
   }
   
   footer .d-block
