@@ -64,7 +64,8 @@ body {
 
 
 .box .options {
-    margin-bottom: 30px;
+    height:70px;
+    width:100%;
 }
 
 .box .options a {
@@ -76,6 +77,9 @@ body {
     font-weight: 600;
     font-size: 12px;
     border-radius: 50px;
+    position: absolute;
+    left: 15px;
+    bottom: 10px;
 }
 
 .box .options a:hover {
